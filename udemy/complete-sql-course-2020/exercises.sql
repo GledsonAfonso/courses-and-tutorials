@@ -43,3 +43,10 @@ select top 10 p.ProductID  from Production.Product p order by p.ListPrice  desc 
 select p.Name, p.ProductNumber from Production.Product p where p.ProductID BETWEEN 1 and 4 ;
 -- or
 select top 4 p.Name, p.ProductNumber from Production.Product p order by p.ProductID asc;
+
+-- Section 2 - 14
+-- Challenge #1
+select count(p.ProductID) from Production.Product p where p.ListPrice > 1500;
+
+-- Challenge #2
+select count(p.LastName) from Person.Person p where p.LastName like 'p%';
