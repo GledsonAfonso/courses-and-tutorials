@@ -38,3 +38,8 @@ select count(DISTINCT p.[Size]) from Production.Product p ;
 -- Section 2 - 10
 -- Challenge #1
 select top 10 p.ProductID  from Production.Product p order by p.ListPrice  desc ;
+
+-- Challenge #2
+select p.Name, p.ProductNumber from Production.Product p where p.ProductID BETWEEN 1 and 4 ;
+-- or
+select top 4 p.Name, p.ProductNumber from Production.Product p order by p.ProductID asc;
