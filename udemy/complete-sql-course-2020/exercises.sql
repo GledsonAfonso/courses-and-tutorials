@@ -62,3 +62,17 @@ select count(*) from Production.Product p where p.Color = 'red' and p.ListPrice 
 
 -- Challenge #6
 select count(*) from Production.Product p where p.Name like '%road%' ;
+
+
+-- Section 2 - 16
+-- Challenge #1
+select p.MiddleName, count(p.MiddleName) as quantity from Person.Person p group by p.MiddleName ;
+
+-- Challenge #2
+select sod.ProductID, avg(sod.OrderQty) as average from Sales.SalesOrderDetail sod group by sod.ProductID ;
+
+-- Challenge #3
+select top 10 sod.ProductID, sum(sod.LineTotal) as line_total_sum from Sales.SalesOrderDetail sod group by sod.ProductID order by line_total_sum desc ;
+
+-- Challenge #4
+select wo.ProductID, count(wo.ProductID) as product_quantity, avg(wo.OrderQty) as order_quantity_average from Production.WorkOrder wo group by wo.ProductID ;
