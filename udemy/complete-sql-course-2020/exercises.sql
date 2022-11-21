@@ -50,3 +50,15 @@ select count(p.ProductID) from Production.Product p where p.ListPrice > 1500;
 
 -- Challenge #2
 select count(p.LastName) from Person.Person p where p.LastName like 'p%';
+
+-- Challenge #3
+select count(distinct a.City) from Person.Address a ;
+
+-- Challenge #4
+select distinct a.City from Person.Address a ;
+
+-- Challenge #5
+select count(*) from Production.Product p where p.Color = 'red' and p.ListPrice BETWEEN 500 and 1000 ;
+
+-- Challenge #6
+select count(*) from Production.Product p where p.Name like '%road%' ;
