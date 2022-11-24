@@ -76,3 +76,11 @@ select top 10 sod.ProductID, sum(sod.LineTotal) as line_total_sum from Sales.Sal
 
 -- Challenge #4
 select wo.ProductID, count(wo.ProductID) as product_quantity, avg(wo.OrderQty) as order_quantity_average from Production.WorkOrder wo group by wo.ProductID ;
+
+
+-- Section 2 - 17
+-- Challenge #1
+select a.StateProvinceID, count(a.StateProvinceID) as state_province_register_times from Person.Address a group by a.StateProvinceID having count(a.StateProvinceID) > 1000 ;
+
+-- Challenge #2
+select sod.ProductID, avg(sod.LineTotal) as total_sales from Sales.SalesOrderDetail sod group by sod.ProductID having avg(sod.LineTotal) < 1000000 ;
