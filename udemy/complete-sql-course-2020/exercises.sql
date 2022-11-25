@@ -84,3 +84,11 @@ select a.StateProvinceID, count(a.StateProvinceID) as state_province_register_ti
 
 -- Challenge #2
 select sod.ProductID, avg(sod.LineTotal) as total_sales from Sales.SalesOrderDetail sod group by sod.ProductID having avg(sod.LineTotal) < 1000000 ;
+
+
+-- Section 3 - 1
+-- Challenge #1
+select pp.BusinessEntityID, pnt.Name, pnt.PhoneNumberTypeID, pp.PhoneNumber from Person.PersonPhone pp inner join Person.PhoneNumberType pnt on pnt.PhoneNumberTypeID = pp.PhoneNumberTypeID ;
+
+-- Challenge #2
+select top 10 pa.AddressID, pa.City, psp.StateProvinceID, psp.Name from Person.Address pa inner join Person.StateProvince psp on psp.StateProvinceID = pa.StateProvinceID;
