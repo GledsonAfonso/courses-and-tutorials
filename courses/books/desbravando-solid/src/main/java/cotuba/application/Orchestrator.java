@@ -3,15 +3,12 @@ package cotuba.application;
 import cotuba.cli.Cli;
 import cotuba.domain.Ebook;
 import cotuba.epub.EpubGenerator;
-import cotuba.epub.impl.EpubGeneratorImpl;
 import cotuba.md.HtmlRender;
-import cotuba.md.impl.HtmlRenderImpl;
 import cotuba.pdf.PdfGenerator;
-import cotuba.pdf.impl.PdfGeneratorImpl;
 
 public class Orchestrator {
   public void execute(Cli cli) {
-    HtmlRender htmlRender = new HtmlRenderImpl();
+    var htmlRender = HtmlRender.create();
     var chapters = htmlRender.render(cli.getMarkdownPath());
 
     var ebook = new Ebook();
@@ -20,10 +17,10 @@ public class Orchestrator {
     ebook.setChapters(chapters);
 
     if ("pdf".equals(cli.getFormat())) {
-      PdfGenerator pdfGenerator = new PdfGeneratorImpl();
+      var pdfGenerator = PdfGenerator.create();
       pdfGenerator.generate(ebook);
     } else if ("epub".equals(cli.getFormat())) {
-      EpubGenerator epubGenerator = new EpubGeneratorImpl();
+      var epubGenerator = EpubGenerator.create();
       epubGenerator.generate(ebook);
     } else {
       throw new IllegalArgumentException("Invalid ebook format: " + cli.getFormat());

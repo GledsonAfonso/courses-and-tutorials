@@ -1,4 +1,4 @@
-package cotuba.md;
+package cotuba.md.impl;
 
 import org.commonmark.node.AbstractVisitor;
 import org.commonmark.node.Heading;

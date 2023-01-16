@@ -13,7 +13,6 @@ import org.commonmark.renderer.html.HtmlRenderer;
 
 import cotuba.domain.Chapter;
 import cotuba.md.HtmlRender;
-import cotuba.md.NodeVisitor;
 
 public class HtmlRenderImpl implements HtmlRender {
   @Override
