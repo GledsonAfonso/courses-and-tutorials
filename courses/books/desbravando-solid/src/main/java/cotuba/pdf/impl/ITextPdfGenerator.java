@@ -15,7 +15,7 @@ import com.itextpdf.layout.property.AreaBreakType;
 import cotuba.domain.Ebook;
 import cotuba.pdf.PdfGenerator;
 
-public class PdfGeneratorImpl implements PdfGenerator {
+public class ITextPdfGenerator implements PdfGenerator {
   @Override
   public void generate(Ebook ebook) {
     var outputPath = ebook.getOutputPath();

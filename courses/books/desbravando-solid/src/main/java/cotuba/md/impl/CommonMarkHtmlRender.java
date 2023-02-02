@@ -14,7 +14,7 @@ import org.commonmark.renderer.html.HtmlRenderer;
 import cotuba.domain.Chapter;
 import cotuba.md.HtmlRender;
 
-public class HtmlRenderImpl implements HtmlRender {
+public class CommonMarkHtmlRender implements HtmlRender {
   @Override
   public List<Chapter> render(Path markdownPath) {
     return this.getMarkdownPaths(markdownPath)

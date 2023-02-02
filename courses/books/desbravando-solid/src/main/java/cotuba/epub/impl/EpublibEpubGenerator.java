@@ -10,7 +10,7 @@ import nl.siegmann.epublib.domain.Resource;
 import nl.siegmann.epublib.epub.EpubWriter;
 import nl.siegmann.epublib.service.MediatypeService;
 
-public class EpubGeneratorImpl implements EpubGenerator {
+public class EpublibEpubGenerator implements EpubGenerator {
   @Override
   public void generate(Ebook ebook) {
     var epub = new Book();
