@@ -1,7 +1,7 @@
-package cotuba.pdf;
+package cotuba.application;
 
 import cotuba.domain.Ebook;
-import cotuba.pdf.impl.ITextPdfGenerator;
+import cotuba.pdf.ITextPdfGenerator;
 
 public interface PdfGenerator {
   void generate(Ebook ebook);

@@ -1,10 +1,10 @@
-package cotuba.md;
+package cotuba.application;
 
 import java.nio.file.Path;
 import java.util.List;
 
 import cotuba.domain.Chapter;
-import cotuba.md.impl.CommonMarkHtmlRender;
+import cotuba.md.CommonMarkHtmlRender;
 
 public interface HtmlRender {
   List<Chapter> render(Path markdownPath);

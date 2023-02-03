@@ -1,7 +1,7 @@
-package cotuba.epub;
+package cotuba.application;
 
 import cotuba.domain.Ebook;
-import cotuba.epub.impl.EpublibEpubGenerator;
+import cotuba.epub.EpublibEpubGenerator;
 
 public interface EpubGenerator {
   void generate(Ebook ebook);

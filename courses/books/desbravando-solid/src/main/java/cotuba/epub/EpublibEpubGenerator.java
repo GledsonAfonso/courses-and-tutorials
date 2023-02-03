@@ -1,10 +1,10 @@
-package cotuba.epub.impl;
+package cotuba.epub;
 
 import java.io.IOException;
 import java.nio.file.Files;
 
+import cotuba.application.EpubGenerator;
 import cotuba.domain.Ebook;
-import cotuba.epub.EpubGenerator;
 import nl.siegmann.epublib.domain.Book;
 import nl.siegmann.epublib.domain.Resource;
 import nl.siegmann.epublib.epub.EpubWriter;

@@ -1,4 +1,4 @@
-package cotuba.pdf.impl;
+package cotuba.pdf;
 
 import java.nio.file.Files;
 import java.util.List;
@@ -12,8 +12,8 @@ import com.itextpdf.layout.element.IBlockElement;
 import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.property.AreaBreakType;
 
+import cotuba.application.PdfGenerator;
 import cotuba.domain.Ebook;
-import cotuba.pdf.PdfGenerator;
 
 public class ITextPdfGenerator implements PdfGenerator {
   @Override

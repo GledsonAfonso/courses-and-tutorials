@@ -1,4 +1,4 @@
-package cotuba.md.impl;
+package cotuba.md;
 
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -11,8 +11,8 @@ import org.commonmark.node.Visitor;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
+import cotuba.application.HtmlRender;
 import cotuba.domain.Chapter;
-import cotuba.md.HtmlRender;
 
 public class CommonMarkHtmlRender implements HtmlRender {
   @Override
