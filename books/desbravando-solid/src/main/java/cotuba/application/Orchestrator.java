@@ -1,26 +1,25 @@
 package cotuba.application;
 
-import cotuba.cli.Cli;
 import cotuba.domain.Ebook;
 
 public class Orchestrator {
-  public void execute(Cli cli) {
+  public void execute(OrchestratorParameters parameters) {
     var htmlRender = HtmlRender.create();
-    var chapters = htmlRender.render(cli.getMarkdownPath());
+    var chapters = htmlRender.render(parameters.getMarkdownPath());
 
     var ebook = new Ebook();
-    ebook.setFormat(cli.getFormat());
-    ebook.setOutputPath(cli.getOutputPath());
+    ebook.setFormat(parameters.getFormat());
+    ebook.setOutputPath(parameters.getOutputPath());
     ebook.setChapters(chapters);
 
-    if ("pdf".equals(cli.getFormat())) {
+    if ("pdf".equals(parameters.getFormat())) {
       var pdfGenerator = PdfGenerator.create();
       pdfGenerator.generate(ebook);
-    } else if ("epub".equals(cli.getFormat())) {
+    } else if ("epub".equals(parameters.getFormat())) {
       var epubGenerator = EpubGenerator.create();
       epubGenerator.generate(ebook);
     } else {
-      throw new IllegalArgumentException("Invalid ebook format: " + cli.getFormat());
+      throw new IllegalArgumentException("Invalid ebook format: " + parameters.getFormat());
     }
   }
 }
