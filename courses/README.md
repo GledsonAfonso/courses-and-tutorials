@@ -1,7 +1,6 @@
 # Courses
 
-Stuff related to the courses I've taken on any educational platform, or from technical books:
+Stuff related to the courses I've taken on any educational platform:
 
 - [Alura](./alura/)
 - [Udemy](./udemy/)
-- [Books](./books/)
