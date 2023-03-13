@@ -3,14 +3,14 @@ package cotuba.epub;
 import java.io.IOException;
 import java.nio.file.Files;
 
-import cotuba.application.EpubGenerator;
+import cotuba.application.EbookGenerator;
 import cotuba.domain.Ebook;
 import nl.siegmann.epublib.domain.Book;
 import nl.siegmann.epublib.domain.Resource;
 import nl.siegmann.epublib.epub.EpubWriter;
 import nl.siegmann.epublib.service.MediatypeService;
 
-public class EpublibEpubGenerator implements EpubGenerator {
+public class EpubGenerator implements EbookGenerator {
   @Override
   public void generate(Ebook ebook) {
     var epub = new Book();

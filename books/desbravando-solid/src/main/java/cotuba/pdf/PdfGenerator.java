@@ -12,10 +12,10 @@ import com.itextpdf.layout.element.IBlockElement;
 import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.property.AreaBreakType;
 
-import cotuba.application.PdfGenerator;
+import cotuba.application.EbookGenerator;
 import cotuba.domain.Ebook;
 
-public class ITextPdfGenerator implements PdfGenerator {
+public class PdfGenerator implements EbookGenerator {
   @Override
   public void generate(Ebook ebook) {
     var outputPath = ebook.getOutputPath();
