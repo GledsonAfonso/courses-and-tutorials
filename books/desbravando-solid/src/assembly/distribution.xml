@@ -8,7 +8,7 @@
     <includeBaseDirectory>false</includeBaseDirectory>
     <fileSets>
         <fileSet>
-            <directory>${project.basedir}/src/scripts</directory>
+            <directory>${project.basedir}</directory>
             <outputDirectory>${file.separator}</outputDirectory>
             <includes>
                 <include>cotuba.sh</include>

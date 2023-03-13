@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cotuba</groupId>
 	<artifactId>cotuba-cli</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -69,6 +69,8 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.name}</finalName>
+		
 		<plugins>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
@@ -106,5 +108,4 @@
 		    <url>https://rawgit.com/alexandreaquiles/mvn-repo/master</url>
     	</repository>
 	</repositories>
-
 </project>

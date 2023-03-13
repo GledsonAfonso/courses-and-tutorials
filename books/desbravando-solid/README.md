@@ -35,5 +35,5 @@ To generate an EPUB file, run:
 ./cotuba.sh -d directory/of/the/book -f epub
 ```
 
-An `book.pdf` should be generated after this.
+An `book.epub` should be generated after this.
 
