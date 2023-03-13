@@ -11,11 +11,9 @@ import org.commonmark.node.Visitor;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
-import cotuba.application.HtmlRender;
 import cotuba.domain.Chapter;
 
-public class CommonMarkHtmlRender implements HtmlRender {
-  @Override
+public class HtmlRender {
   public List<Chapter> render(Path markdownPath) {
     return this.getMarkdownPaths(markdownPath)
         .stream()
