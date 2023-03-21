@@ -1,5 +1,5 @@
 {
-  "name": "web-scraper-with-different-libs",
+  "name": "web-scraper-with-cheerio",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
