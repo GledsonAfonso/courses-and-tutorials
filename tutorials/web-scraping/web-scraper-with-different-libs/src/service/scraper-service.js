@@ -1,7 +1,7 @@
 const cheerio = require('cheerio');
 const { get } = require('./http-service');
 
-const { URL } = process.env;
+const URL = 'http://books.toscrape.com';
 
 const _getHtml = (uri) => {
   const fullUrl = `${URL}/catalogue/${uri.replace('catalogue/', '')}`;

@@ -11,13 +11,17 @@ const get = async (url) => {
     headers: _headers
   };
 
-  const response = await request(options);
-
-  if (response.data) {
-    return response.data;
-  } else {
-    return undefined;
+  try {
+    const response = await request(options);
+  
+    if (response.data) {
+      return response.data;
+    }
+  } catch (error) {
+    console.log(error);
   }
+
+  return undefined;
 };
 
 module.exports = { get };
