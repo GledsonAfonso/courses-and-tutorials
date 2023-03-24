@@ -1,49 +1,66 @@
 const puppeteer = require('puppeteer');
-const { get } = require('./http-service');
 
 const URL = 'http://books.toscrape.com';
 
-const _getHtml = (uri) => {
-  const fullUrl = `${URL}/catalogue/${uri.replace('catalogue/', '')}`;
-  return get(fullUrl);
+const _getUrl = (uri) => `${URL}/catalogue/${uri.replace('catalogue/', '')}`;
+
+const _getBooks = (page, url) => {
+  await page.goto(url);
+  const articleElements = await page.waitForSelector('ol.row li article');
+  
+  const books = await articleElements.map(articleElement => {
+    const book = await articleElement.evaluate((element) => {
+      const rating = element.querySelector('p').className.replace('star-rating ', '');
+      const title = element.querySelector('h3 a').getAttribute('title');
+      const priceElement = element.querySelector('div.product_price');
+      const price = priceElement.querySelector('p.price_color').textContent;
+      const availability = priceElement.querySelector('p.instock').textContent.trim();
+  
+      return { rating, title, price, availability };
+    });
+
+    return book;
+  });
+
+  return books;
 };
 
-const _getBooksInfo = (html) => {
-  return undefined;
+const _findBookByName = (books, name) => {
+  const filteredBooks = books.filter(bookInfo => bookInfo.title.toLowerCase() == name.toLowerCase());
+  return filteredBooks?.[0];
 };
 
-const _getNextPageButtonUri = (html) => {
-  return undefined;
-};
-
-const _getBookByName = (booksInfo, name) => {
-  const books = booksInfo.filter(bookInfo => bookInfo.title.toLowerCase() == name.toLowerCase());
-
-  if (books) {
-    return books[0];
-  } else {
-    return undefined;
-  }
-};
-
-const getBookInfoByName = async (name, html) => {
-  if (!html) {
-    html = await _getHtml('page-1.html');
+const _getBookByName = async (page, name, url) => {
+  if (!url) {
+    url = _getUrl('page-1.html');
   }
   
-  const booksInfo = _getBooksInfo(html);
-  const book = _getBookByName(booksInfo, name);
+  const books = _getBooks(page, url);
+  const book = _findBookByName(books, name);
 
   if (book) {
     return book;
   } else {
-    const uri = _getNextPageButtonUri(html);
-
+    const nextButtonElement = await page.waitForSelector('ul.pager li.next a');
+    const uri = await nextButtonElement.evaluate(element => element.getAttribute('href'));
+    
     if (uri) {
-      html = await _getHtml(uri);
-      return await getBookInfoByName(name, html);
+      url = _getUrl(uri);
+      return await _getBookByName(page, name, url);
     }
+
+    return undefined;
   }
+};
+
+const getBookInfoByName = async (name) => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  const book = await _getBookByName(page, name);
+  
+  await browser.close();
+  
+  return book;
 };
 
 module.exports = { getBookInfoByName };
