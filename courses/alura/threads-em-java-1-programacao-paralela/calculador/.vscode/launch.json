@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "TelaCalculador",
+      "request": "launch",
+      "mainClass": "br.com.alura.threads.TelaCalculador",
+      "projectName": "calculador_56604db0"
+    },
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    }
+  ]
+}

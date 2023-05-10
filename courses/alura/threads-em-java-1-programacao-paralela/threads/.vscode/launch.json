@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Application",
+      "request": "launch",
+      "mainClass": "br.com.alura.threads.Application",
+      "projectName": "threads_ec603dab"
+    },
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "Application",
+      "request": "launch",
+      "mainClass": "br.com.alura.threads.Application",
+      "projectName": "threads"
+    }
+  ]
+}
