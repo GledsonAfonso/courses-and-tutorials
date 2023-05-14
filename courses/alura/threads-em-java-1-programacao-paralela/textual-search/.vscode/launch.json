@@ -5,8 +5,8 @@
       "type": "java",
       "name": "Application",
       "request": "launch",
-      "mainClass": "br.com.alura.buscatextual.Application",
-      "projectName": "busca-textual_381963a6"
+      "mainClass": "br.com.alura.textualsearch.Application",
+      "projectName": "textual-search_26fb8160"
     },
     {
       "type": "java",
@@ -18,7 +18,7 @@
       "type": "java",
       "name": "Application",
       "request": "launch",
-      "mainClass": "br.com.alura.buscatextual.Application",
+      "mainClass": "br.com.alura.textualsearch.Application",
       "projectName": "busca-textual"
     }
   ]

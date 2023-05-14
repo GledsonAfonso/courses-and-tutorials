@@ -1,4 +1,4 @@
-package br.com.alura.buscatextual;
+package br.com.alura.textualsearch;
 
 import java.io.File;
 import java.util.Scanner;

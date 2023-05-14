@@ -3,9 +3,16 @@
   "configurations": [
     {
       "type": "java",
-      "name": "TelaCalculador",
+      "name": "Application",
       "request": "launch",
-      "mainClass": "br.com.alura.threads.TelaCalculador",
+      "mainClass": "br.com.alura.threads.Application",
+      "projectName": "calculator_566089c0"
+    },
+    {
+      "type": "java",
+      "name": "Application",
+      "request": "launch",
+      "mainClass": "br.com.alura.threads.Application",
       "projectName": "calculador_56604db0"
     },
     {

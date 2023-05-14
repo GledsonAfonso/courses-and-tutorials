@@ -1,4 +1,4 @@
-package br.com.alura.buscatextual;
+package br.com.alura.textualsearch;
 
 public class Application {
 	public static void main(String[] args) {
