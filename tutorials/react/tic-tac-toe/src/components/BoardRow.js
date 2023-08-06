@@ -1,10 +1,16 @@
 import Square from "./Square";
 
-export default function BoardRow({ units, mark, setMark }) {
+export default function BoardRow({ row, matrix, onSquareClickHandler }) {
   return <div className="board-row">
     {
-      units.map(number => {
-        return <Square key={number} mark={mark} setMark={setMark} />
+      matrix[row].map((_, index) => {
+        return <Square
+          key={index}
+          row={row}
+          column={index}
+          matrix={matrix}
+          onSquareClickHandler={onSquareClickHandler}
+        />
       })
     }
   </div>
