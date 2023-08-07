@@ -53,16 +53,19 @@ export default function Board() {
     }
   };
 
-  return <div className="board">
-    {
-      matrix.map((_, index) => {
-        return <BoardRow
-          key={index}
-          row={index}
-          matrix={matrix}
-          onSquareClickHandler={handleClick}
-        />
-      })
-    }
-  </div>
+  return <>
+    <div className="board">
+      {
+        matrix.map((_, index) => {
+          return <BoardRow
+            key={index}
+            row={index}
+            matrix={matrix}
+            onSquareClickHandler={handleClick}
+          />
+        })
+      }
+    </div>
+    {isGameOver && <p>Winner: {previousMark}</p>}
+  </>
 }
