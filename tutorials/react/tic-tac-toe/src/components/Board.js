@@ -3,9 +3,21 @@ import BoardRow from "./BoardRow";
 
 export default function Board() {
   const size = 3;
+
   const [previousMark, setPreviousMark] = useState("");
   const [isGameOver, setIsGameOver] = useState(false);
   const [matrix, setMatrix] = useState(Array(size).fill(null).map(() => Array(size).fill("")));
+  const [saveStates, setSaveStates] = useState([ JSON.stringify({ previousMark, isGameOver, matrix }) ]);
+
+  const saveState = () => {
+    const currentState = {
+      previousMark: previousMark,
+      isGameOver: isGameOver,
+      matrix: matrix
+    };
+
+    setSaveStates(() => [...saveStates, JSON.stringify(currentState)]);
+  };
 
   const getXOBasedOnPreviousMark = () => {
     if (["", "O"].includes(previousMark)) {
@@ -50,6 +62,20 @@ export default function Board() {
       setPreviousMark(matrix[row][column]);
       setMatrix(matrix);
       setIsGameOver(isWinner(row, column));
+      saveState();
+    }
+  };
+
+  const returnToPreviousState = () => {
+    const lastSaveStateIndex = saveStates.length - 2;
+
+    if (lastSaveStateIndex >= 0) {
+      const previousState = JSON.parse(saveStates[lastSaveStateIndex]);
+
+      setPreviousMark(previousState.previousMark); // it's getting the wrong mark
+      setIsGameOver(previousState.isGameOver);
+      setMatrix(previousState.matrix);
+      setSaveStates(() => saveStates.slice(0, saveStates.length - 1));
     }
   };
 
@@ -65,6 +91,7 @@ export default function Board() {
           />
         })
       }
+      <button onClick={() => returnToPreviousState()}>{"<-"}</button>
     </div>
     {isGameOver && <p>Winner: {previousMark}</p>}
   </>
