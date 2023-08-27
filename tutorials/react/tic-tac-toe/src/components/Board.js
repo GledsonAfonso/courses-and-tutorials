@@ -11,7 +11,7 @@ export default function Board() {
 
   const saveState = () => {
     const currentState = {
-      previousMark: previousMark,
+      previousMark: getXOBasedOnPreviousMark(),
       isGameOver: isGameOver,
       matrix: matrix
     };
@@ -72,7 +72,7 @@ export default function Board() {
     if (lastSaveStateIndex >= 0) {
       const previousState = JSON.parse(saveStates[lastSaveStateIndex]);
 
-      setPreviousMark(previousState.previousMark); // it's getting the wrong mark
+      setPreviousMark(previousState.previousMark);
       setIsGameOver(previousState.isGameOver);
       setMatrix(previousState.matrix);
       setSaveStates(() => saveStates.slice(0, saveStates.length - 1));
