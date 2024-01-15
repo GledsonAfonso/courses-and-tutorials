@@ -1,4 +1,10 @@
+# VS Code
+.vscode/**
+
+# Terraform
 .terraform/*
 .terraform.lock.hcl
 terraform.tfstate*
+
+# Misc
 *.pem

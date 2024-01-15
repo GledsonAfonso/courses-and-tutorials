@@ -19,6 +19,6 @@ resource "aws_instance" "app_server" {
   key_name = "user-test"
 
   tags = {
-    Name = "AWS Test"
+    Name = "Terraform Ansible Python"
   }
 }
