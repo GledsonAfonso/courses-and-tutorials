@@ -21,3 +21,5 @@
       regexp: 'ALLOWED_HOSTS'
       line: 'ALLOWED_HOSTS = ["*"]'
       backrefs: yes
+  - name: Starting the Python server
+    shell: '. /home/ubuntu/tcc/venv/bin/activate; nohup python /home/ubuntu/tcc/manage.py runserver 0.0.0.0:8000 &'
