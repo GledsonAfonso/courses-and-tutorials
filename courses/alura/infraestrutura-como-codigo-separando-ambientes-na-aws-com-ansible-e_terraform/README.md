@@ -10,6 +10,6 @@ You will need to create two pairs of SSH keys to use this project, one for the d
 ssh-keygen
 ```
 
-Follow the steps and choose a unique name with environment that the key is related to. That will generate a pair of keys, one public and one private. Remember to create that for each environment (development and production).
+Follow the steps and choose an unique name containing the environment that the key is related to. Also, choose the correct environment folder for each key (`./env/dev` for the dev environment, `./env/prod` for the production environment). That will generate a pair of keys, one public and one private.
 
-After completing this process, update the `main.tf` file to use the key names that you choose.
+After completing this process, update the `main.tf` file to use the public key that you created.
