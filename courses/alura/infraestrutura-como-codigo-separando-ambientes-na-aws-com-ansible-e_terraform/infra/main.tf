@@ -15,12 +15,12 @@ provider "aws" {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-0c7217cdde317cfec"
+  ami           = var.aws_ami
   instance_type = var.aws_instance
   key_name = var.ssh_key
 
   tags = {
-    Name = "Terraform Ansible Python"
+    Name = "Terraform Ansible Python - ${var.environment}"
   }
 }
 
