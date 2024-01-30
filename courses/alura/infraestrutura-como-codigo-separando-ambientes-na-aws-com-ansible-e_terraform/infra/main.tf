@@ -10,13 +10,14 @@ terraform {
 }
 
 provider "aws" {
-  region  = "us-east-1"
+  profile = "default"
+  region  = var.aws_region
 }
 
 resource "aws_instance" "app_server" {
   ami           = "ami-0c7217cdde317cfec"
-  instance_type = "t2.micro"
-  key_name = "user-test"
+  instance_type = var.aws_instance
+  key_name = var.ssh_key
 
   tags = {
     Name = "Terraform Ansible Python"
@@ -24,6 +25,6 @@ resource "aws_instance" "app_server" {
 }
 
 resource "aws_key_pair" "ssh_key" {
-  key_name = dev
-  public_key = file("~/.ssh/alura-iac-dev.pub")
+  key_name = var.ssh_key
+  public_key = file("${var.ssh_key}.pub")
 }
