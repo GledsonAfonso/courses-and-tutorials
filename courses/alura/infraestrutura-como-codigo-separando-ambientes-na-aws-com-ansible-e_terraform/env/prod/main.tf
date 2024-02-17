@@ -6,3 +6,7 @@ module "aws-dev" {
   ssh_key = "alura-iac-prod"
   environment = "prod"
 }
+
+output "ip" {
+  value = module.aws-dev.public_ip
+}

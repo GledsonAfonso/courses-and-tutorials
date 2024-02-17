@@ -28,3 +28,7 @@ resource "aws_key_pair" "ssh_key" {
   key_name = var.ssh_key
   public_key = file("${var.ssh_key}.pub")
 }
+
+output "public_ip" {
+  value = aws_instance.app_server.public_ip
+}
