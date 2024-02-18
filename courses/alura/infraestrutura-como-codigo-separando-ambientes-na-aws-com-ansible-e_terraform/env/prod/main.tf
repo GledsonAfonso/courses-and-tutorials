@@ -1,4 +1,4 @@
-module "aws-dev" {
+module "aws-prod" {
   source = "../../infra"
   aws_instance = "t2.micro"
   aws_region = "us-east-2"
@@ -8,5 +8,5 @@ module "aws-dev" {
 }
 
 output "ip" {
-  value = module.aws-dev.public_ip
+  value = module.aws-prod.public_ip
 }
