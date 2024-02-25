@@ -35,3 +35,16 @@ variable_name = variable_value
 ```
 
 Terraform should load that automatically.
+
+## Outputs
+
+Outputs are used to print useful information about the infra to the user. You can achieve that creating an `outputs.tf` file in your project with content like this:
+
+```
+output "output_content_name" {
+  description = "Description of what will be printed"
+
+  ## value to be printed
+  value       = aws_instance.app_server.id
+}
+```
