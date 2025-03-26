@@ -6,15 +6,17 @@
 	border-bottom: 1px solid #282828;
 }
 
-.check-list-item-input {
+.check-list-item-checkbox {
 	margin-right: 2em;
 	accent-color: #424242; /* checked box color */
 }
 
-.check-list-item-label {
-	font-size: 2.5em;
-}
-
-.check-list-item-label-checked {
-	text-decoration: line-through;
+.check-list-item-text {
+	background: transparent; /* this is to remove the default white box in the background of the input */
+	border: 0;
+	padding: 0;
+	margin: 0;
+	font-size: 2em;
+	outline: none; /* this is to remove that blue focus square when you click in the input */
+	color: #808080
 }

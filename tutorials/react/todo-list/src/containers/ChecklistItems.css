@@ -3,3 +3,25 @@
   border-radius: 20px;
   box-shadow: 0 0 10px #101010;
 }
+
+.check-list-items-buttons-footer {
+  padding: 2em;
+}
+
+.check-list-items-add-button {
+  appearance: none;
+  background-color: #202020;
+  box-shadow: 0 0 10px #101010;
+  color: #424242;
+  padding: 1em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  border-radius: 10px;
+  margin-left: 90%;
+  font-size: 1.2em;
+}
+
+/* styles for the button when it gets clicked */
+.check-list-items-add-button:active {
+  background-color: #191919 /* it makes the background darker to create the illusion of depth when clicking the button */
+}

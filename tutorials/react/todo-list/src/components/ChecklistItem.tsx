@@ -1,17 +1,17 @@
 import "@components/ChecklistItem.css";
 import { useState } from "react";
 
-type ChecklistItemProps = {
+export type ChecklistItemProps = {
 	checkboxId: string;
-	checklistItemText: string;
 };
 
 export const ChecklistItem = (props: ChecklistItemProps) => {
 	const {
 		checkboxId,
-		checklistItemText,
 	} = props;
+
 	const [ checked, setChecked ] = useState(false);
+
 	const labelStyle = {
 		textDecorationLine: checked ? "line-through" : "none",
 		color: checked ? "#424242" : undefined
@@ -26,20 +26,17 @@ export const ChecklistItem = (props: ChecklistItemProps) => {
 	return (
 		<div className="check-list-item-box">
 			<input
-				className="check-list-item-input"
+				className="check-list-item-checkbox"
 				type="checkbox"
 				id={checkboxId}
 				name={checklistItemName}
-				value={checklistItemText}
 				onChange={updateCheckbox}
 			/>
-			<label
-				className="check-list-item-label"
-				htmlFor={checklistItemName}
+			<input
+				className="check-list-item-text"
 				style={labelStyle}
-			>
-				{checklistItemText}
-			</label>
+				type="text"
+			/>
 		</div>
 	);
 };
