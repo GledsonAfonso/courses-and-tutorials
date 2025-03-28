@@ -1,25 +1,23 @@
 import "@containers/ChecklistItems.css";
 
-import { ChecklistItem } from "@components/ChecklistItem";
+import { ChecklistItem, Task } from "@components/ChecklistItem";
 import { useState } from "react";
 
-type TodoTaskItem = {
-  id: string;
-  text?: string;
-};
-
 export const ChecklistItems = () => {
-  const [todoTasks, setTodoTasks] = useState<TodoTaskItem[]>([{ id: self.crypto.randomUUID() }]);
+  const [todoTasks, setTodoTasks] = useState<Task[]>([{ id: self.crypto.randomUUID() }]);
 
   const addNewTodoTaskLine = () => {
     setTodoTasks([...todoTasks, { id: self.crypto.randomUUID() }]);
   };
 
-  const updateTaskText = (checkListItemId: string, newTaskText: string) => {
+  const updateTaskText = (updatedTodoTask: Task) => {
     setTodoTasks(
       todoTasks.map(todoTask => {
-        if (todoTask.id === checkListItemId) {
-          todoTask.text = newTaskText;
+        if (todoTask.id === updatedTodoTask.id) {
+          todoTask = {
+            ...todoTask,
+            ...updatedTodoTask,
+          };
         }
 
         return todoTask;
@@ -39,6 +37,7 @@ export const ChecklistItems = () => {
             checkListItemId={todoTask.id}
             checkListItemText={todoTask.text}
             checkboxId={`checkbox-${todoTask.id}`}
+            checked={todoTask.checked}
             onTaskUpdate={updateTaskText}
             onTaskRemove={removeTaskFromArray}
           />
