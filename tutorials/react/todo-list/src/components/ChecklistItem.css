@@ -20,3 +20,20 @@
 	outline: none; /* this is to remove that blue focus square when you click in the input */
 	color: #808080
 }
+
+.remove-task-button {
+	float: right; /* this places the button to the right */
+  appearance: none;
+  background-color: #202020;
+  box-shadow: 0 0 10px #101010;
+  color: #424242;
+  padding: 0.2em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+
+.remove-task-button:active {
+  background-color: #191919
+}

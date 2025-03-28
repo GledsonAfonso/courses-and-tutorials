@@ -1,15 +1,22 @@
 import "@components/ChecklistItem.css";
+
 import { useState } from "react";
 
 export type ChecklistItemProps = {
+	checkListItemId: string;
+	checkListItemText?: string;
 	checkboxId: string;
+	onTaskUpdate: (checkListItemId: string, newTaskText: string) => void;
+	onTaskRemove: (checkListItemId: string) => void;
 };
 
-export const ChecklistItem = (props: ChecklistItemProps) => {
-	const {
-		checkboxId,
-	} = props;
-
+export const ChecklistItem = ({
+	checkListItemId,
+	checkListItemText,
+	checkboxId,
+	onTaskUpdate,
+	onTaskRemove,
+}: ChecklistItemProps) => {
 	const [ checked, setChecked ] = useState(false);
 
 	const labelStyle = {
@@ -23,8 +30,16 @@ export const ChecklistItem = (props: ChecklistItemProps) => {
 		setChecked(newValue);
 	};
 
+	const updateTask = (text: string) => {
+		onTaskUpdate(checkListItemId, text);
+	};
+
+	const removeTask = () => {
+		onTaskRemove(checkListItemId);
+	};
+
 	return (
-		<div className="check-list-item-box">
+		<div id={checkListItemId} className="check-list-item-box" key={checkListItemId}>
 			<input
 				className="check-list-item-checkbox"
 				type="checkbox"
@@ -36,7 +51,10 @@ export const ChecklistItem = (props: ChecklistItemProps) => {
 				className="check-list-item-text"
 				style={labelStyle}
 				type="text"
+				defaultValue={checkListItemText ?? ""}
+				onChange={(event) => updateTask(event.target.value)}
 			/>
+			<button className="remove-task-button" onClick={removeTask}>X</button>
 		</div>
 	);
 };
