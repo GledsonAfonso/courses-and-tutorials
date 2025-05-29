@@ -1,0 +1,9 @@
+# yarn
+yarn.lock
+
+# pnpm
+pnpm-lock.yaml
+
+# other
+node_modules/
+package-lock.json
